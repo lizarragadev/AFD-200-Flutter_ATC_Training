@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '1': (context) => const UnoPage(),
         '2': (context) => const DosPage(),
-        '3': (context) => const TresPage()
+        '3': (context) => const TresPage(valor: "Por defecto")
+        //'3': (context) => const TresPage(valor: "Defecto")
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson6_navigation/src/pages/tres_page.dart';
 
 class DosPage extends StatelessWidget {
   const DosPage({Key? key}) : super(key: key);
@@ -15,7 +16,8 @@ class DosPage extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "3");
+                  //Navigator.pushNamed(context, "3");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const TresPage(valor: "Dato enviado")));
                 },
                 child: Text("Ir a pagina 3")
             ),
