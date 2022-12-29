@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       routes: getAppicationRoute(),
       onGenerateRoute: (settings){
         return MaterialPageRoute(builder: (context) {
-          return ErrorPage();
+          return const ErrorPage();
         });
       },
     );
