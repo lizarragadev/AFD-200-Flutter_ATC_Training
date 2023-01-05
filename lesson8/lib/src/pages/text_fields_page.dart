@@ -10,6 +10,8 @@ class TextFieldsPage extends StatefulWidget {
 }
 
 class _TextFieldsPageState extends State<TextFieldsPage> {
+  String valorTextField = "";
+
   @override
   Widget build(BuildContext context) {
     if(Platform.isAndroid) {
@@ -28,7 +30,7 @@ class _TextFieldsPageState extends State<TextFieldsPage> {
           scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const  [
+            children:  [
               Text("TextField Normal"),
               TextField(
                 autofocus: true,
@@ -53,7 +55,39 @@ class _TextFieldsPageState extends State<TextFieldsPage> {
               TextField(
                 obscureText: true,
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+
+              const Text("Decoracion"),
+              SizedBox(height: 20,),
+              const TextField(
+                decoration: InputDecoration(
+                  hintText: "Escriba su nombre",
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderSide: BorderSide(color: Colors.redAccent)
+                  )
+                ),
+              ),
+
+              SizedBox(height: 20,),
+              Text("Detectar cambios en TextField"),
+              TextField(
+                  decoration: InputDecoration(
+                      hintText: "DETECTAR CAMBIOS",
+                      border: InputBorder.none,
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(color: Colors.redAccent)
+                      )
+                  ),
+                onChanged: (value) {
+                    setState(() {
+                      valorTextField = value;
+                      print(valorTextField);
+                    });
+                },
+              )
             ],
           ),
         ),

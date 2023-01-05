@@ -15,7 +15,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     '/checkRadio': (context) => const CheckBoxRadioButtonPage(),
     '/pickers': (context) => const PickersDialogPage(),
     '/sliderSwitch': (context) => const SliderSwitchPage(),
-    '/bottomSheet': (context) => const BottomSheetPage(),
+    '/bottomSheet': (context) => BottomSheetPage(),
     '/expansionPanel': (context) => const ExpansionPanelPage(),
   };
 }
