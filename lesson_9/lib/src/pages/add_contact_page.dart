@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_9/src/utils/constants.dart';
+import 'package:lesson_9/src/utils/utils.dart';
 
 class AddContactPage extends StatefulWidget {
   const AddContactPage({Key? key}) : super(key: key);
@@ -81,8 +83,22 @@ class _AddContactPageState extends State<AddContactPage> {
     );
   }
 
-  void validarForm(tipo) {
+  void validarForm() {
+    if(false) {
+      guardarContactFirestore();
+    } else {
+      mostrarMensaje(context, "Existen campos vacíos", Constants.MENSAJE_ERROR);
+    }
+  }
 
+  Future<void> guardarContactFirestore() async {
+    try {
+      showBarraProgreso(context, "Agregando contacto...");
+
+
+    } catch(err) {
+
+    }
   }
 
 

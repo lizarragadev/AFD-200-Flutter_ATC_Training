@@ -1,4 +1,12 @@
 
+import 'package:flutter/material.dart';
+import 'package:lesson_9/src/pages/add_contact_page.dart';
+import 'package:lesson_9/src/pages/add_note_page.dart';
+import 'package:lesson_9/src/pages/error_page.dart';
+import 'package:lesson_9/src/pages/home_page.dart';
+import 'package:lesson_9/src/pages/login_page.dart';
+import 'package:lesson_9/src/pages/register_page.dart';
+
 class RoutePaths {
   static const loginPage = "login";
   static const registerPage = "register";

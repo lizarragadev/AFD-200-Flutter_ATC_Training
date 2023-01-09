@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_9/src/routes/routes.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -12,11 +13,6 @@ class MyApp extends StatelessWidget {
   }
 
   static String getRoute() {
-    User? usuario = FirebaseAuth.instance.currentUser;
-    if(usuario != null) {
-      return RoutePaths.homePage;
-    } else {
-      return RoutePaths.loginPage;
-    }
+    return RoutePaths.loginPage;
   }
 }
