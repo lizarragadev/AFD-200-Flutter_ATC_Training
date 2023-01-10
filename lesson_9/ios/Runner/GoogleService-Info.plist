@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>620722515672-k1mufo4k37jq438ignnj19fj6vgpn944.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.620722515672-k1mufo4k37jq438ignnj19fj6vgpn944</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDIngndgg5Q4nQTygZvYQPI6uNkivw-E4w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>620722515672</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dev.lizarraga.lesson9</string>
+	<key>PROJECT_ID</key>
+	<string>cognosflutter</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cognosflutter.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:620722515672:ios:6c53e4ea8966e9721671ad</string>
+</dict>
+</plist>
