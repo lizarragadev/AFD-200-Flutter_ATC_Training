@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_9/src/provider/auth_provider.dart';
 import 'package:lesson_9/src/routes/routes.dart';
 import 'package:lesson_9/src/utils/constants.dart';
 import 'package:lesson_9/src/utils/utils.dart';
@@ -11,10 +12,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
+  late AuthProvider provider;
   String correo = "";
   String contrasenia = "";
 
+  @override
+  void initState() {
+    super.initState();
+    provider = AuthProvider(context: context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +136,6 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 30,),
                     InkWell(
                       onTap: () {
-                        //Navigator.pushReplacementNamed(context, RoutePaths.homePage);
                         validarUsuario();
                       },
                       splashColor: Colors.deepPurpleAccent,
@@ -179,13 +184,13 @@ class _LoginPageState extends State<LoginPage> {
     if(correo.isNotEmpty && contrasenia.isNotEmpty) {
       if(contrasenia.length >= 6) {
         showBarraProgreso(context, "Iniciando sesión");
-        //dynamic res = await provider.loginUsuario(correo, contrasenia);
+        dynamic res = await provider.loginUsuario(correo, contrasenia);
         Navigator.of(context).pop();
-        if(null != null) {
+        if(res != null) {
           mostrarMensaje(context, "Bienvenido.", Constants.MENSAJE_EXITOSO);
           Navigator.pushReplacementNamed(context, RoutePaths.homePage);
         } else {
-          //mostrarMensaje(context, "Error: $res", Constants.MENSAJE_ERROR);
+          mostrarMensaje(context, "Error: ${res.code}", Constants.MENSAJE_ERROR);
         }
       } else {
         mostrarMensaje(context, "La contraseña debe tener al menos 6 caracteres.", Constants.MENSAJE_ERROR);

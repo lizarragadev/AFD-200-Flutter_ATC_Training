@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:lesson_9/src/pages/contacts_page.dart';
 import 'package:lesson_9/src/pages/notes_page.dart';
 import 'package:lesson_9/src/pages/profile_page.dart';
+import 'package:lesson_9/src/provider/auth_provider.dart';
+import 'package:lesson_9/src/routes/routes.dart';
+import 'package:lesson_9/src/utils/utils.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+  late AuthProvider provider;
   int selectedPage = 0;
   final pagesc = [
     ProfilePage(),
@@ -23,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
+    provider = AuthProvider(context: context);
   }
 
   @override
@@ -90,9 +93,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   cerrarSesion() async{
-    //await _providers.logOut();
-    //Navigator.pushReplacementNamed(context, RoutePaths.loginPage);
-    //mostrarMensaje(context, "Se cerro sesion", 2);
+    await provider.logOut();
+    Navigator.pushReplacementNamed(context, RoutePaths.loginPage);
+    mostrarMensaje(context, "Se cerro sesion", 2);
   }
 
 }

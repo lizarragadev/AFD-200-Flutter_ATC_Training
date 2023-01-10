@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:lesson_9/src/provider/auth_provider.dart';
 import 'package:lesson_9/src/routes/routes.dart';
 import 'package:lesson_9/src/utils/constants.dart';
 import 'package:lesson_9/src/utils/utils.dart';
@@ -12,14 +13,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
+  late AuthProvider provider;
   String correo = "";
   String contrasenia = "";
 
   @override
   Widget build(BuildContext context) {
-
-
+    provider = AuthProvider(context: context);
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -143,7 +143,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(height: 30,),
                     InkWell(
                       onTap: () {
-                        //Navigator.pushReplacementNamed(context, RoutePaths.loginPage);
                         validarUsuario();
                       },
                       splashColor: Colors.blue,
@@ -191,13 +190,13 @@ class _RegisterPageState extends State<RegisterPage> {
     if(correo.isNotEmpty && contrasenia.isNotEmpty) {
       if(contrasenia.length >= 6) {
         showBarraProgreso(context, "Registrando");
-        //var res = await provider.registrarUsuario(correo, contrasenia);
+        var res = await provider.registrarUsuario(correo, contrasenia);
         Navigator.of(context).pop();
-        if(null != null) {
+        if(res != null) {
           mostrarMensaje(context, "Registro exitoso", Constants.MENSAJE_EXITOSO);
           Navigator.pushReplacementNamed(context, RoutePaths.loginPage);
         } else {
-          //mostrarMensaje(context, "Error: ${res.code}", Constants.MENSAJE_ERROR);
+          mostrarMensaje(context, "Error: ${res.code}", Constants.MENSAJE_ERROR);
           Navigator.of(context).pop();
         }
       } else {
